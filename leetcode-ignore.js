@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const button = document.getElementById('add-ignore');
-    console.log(button);
-    registerButton(button);
+    registerButton();  
 })
 
-let registerButton = function(button){
-    console.log("Registering button");
+let registerButton = function(){
+    const button = document.getElementById('add-ignore');
     button.addEventListener("click", function(){
+        // Get problem ID for removal
         const input = document.getElementById('ignore-id');
         const id = input.value;
+        // Replace the text field for further input
         input.value = "";
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+            // Tell the main page to add the problem to its local storage 
             chrome.tabs.sendMessage(tabs[0].id, {action: "add-problem", pid: id}, function(response){
-                console.log(response);
+                
             })
         })
     })
-
 }
