@@ -22,5 +22,8 @@
     "tabs"
   ],
   "web_accessible_resources": [
-  ]
+  ],
+  "icons": {
+    "128": "icon128.jpeg"
+  }
 }
