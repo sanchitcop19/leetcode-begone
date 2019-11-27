@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "leetcode-ignore",
+  "name": "Leetcode Begone",
   "version": "1.0.0",
-  "description": "",
+  "description": "Never want to see another one of those pesky downvoted-to-oblivion questions again? Now you don't have to!",
   "browser_action": {
     "default_popup": "leetcode.html"   
   },
@@ -11,7 +11,7 @@
     {
       "matches": ["https://leetcode.com/*"],
       "run_at": "document_end",
-      "css": ["leetcode.css"],
+      "css": [],
       "js": ["jquery.min.js", "leetcode.js"]
     }
   ],
@@ -24,6 +24,8 @@
   "web_accessible_resources": [
   ],
   "icons": {
-    "128": "icon128.jpeg"
+    "128": "icon128.png",
+    "16": "icon16.png",
+    "48": "icon48.png"
   }
 }

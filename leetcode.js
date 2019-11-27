@@ -1,8 +1,5 @@
-// TODO:  Check for empty button press
+let table, ids = null, [];
 
-let table = null;
-
-let ids = [];
 if (localStorage['ignore-problems']){
     ids = JSON.parse("[" + localStorage['ignore-problems'] + "]");
     console.log(localStorage["ignore-problems"]);
@@ -38,6 +35,9 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse){
     if (msg.action == "add-problem"){
         console.log("inside message action")
         console.log(localStorage["ignore-problems"]);
+        if (!msg.pid){
+            return;
+        }
         //chrome.storage.sync.set({'ignore-problems': msg.pid}, function(){console.log('Added ' + msg.pid + 'to local storage')})
         localStorage['ignore-problems'] = (localStorage['ignore-problems'] === undefined? '' : localStorage['ignore-problems'] + ',' ) + msg.pid;
         console.log(localStorage["ignore-problems"]);
