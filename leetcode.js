@@ -1,4 +1,4 @@
-let table, ids = null, [];
+let ids = [];
 
 if (localStorage['ignore-problems']){
     // Problems are stored as comma separated values, this converts the stored string into a list
@@ -23,7 +23,7 @@ let poll_count = 0;
 
 let pollTable = setInterval(function(){
     // Polls the page every 2s until the table is visible because all hell breaks loose otherwise
-    table = document.getElementsByTagName('table')[0];
+    const table = document.getElementsByTagName('table')[0];
     // Will figure out a better solution than the latter conditional
     if (table || poll_count > 10){
         // Stop polling as soon as the table was found
